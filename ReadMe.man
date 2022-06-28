@@ -1,0 +1,50 @@
+BIOL60201 Programming Skills
+Group 2 Task 1 Man Page
+
+NAME
+	group2_task1.py
+
+DESCRIPTIION
+Given a single nucleotide sequence in fasta format, the program predicts all the possible open reading frames (ORFs) beginning with the start codon ATG and ending with 1 of the 3 stop codons TGA, TAA, TAG. The program assumes that the longest ORF will be used. The program outputs a file containing all ORFs predicted with the following specifications: every ORF starts with a header that begins with the “>” sign followed by the name of the nucleotide sequence, what frame the ORF was predicted in, the number of that ORF, its length and its start position in the nucleotide sequence. 
+
+NOTES: 
+The 3 ORFs in the forward strands will be numbered F_1, F_2 and F_3 while The 3 ORFs in the reverse strand will be numbered F_4, F_5 and F_6 in the output file.
+All the starting positions reported in the output file are all with respect to the original nucleotide positions in the sequence and not the frame itself i.e. looking at F_3 if an ATG starts from the 1st position of F_3, its starting position will be reported as 3 and not 1 in the output file since F_3 starts from the 3rd nucleotide in the sequence. 
+
+The following options are available:
+
+-h 		   Help statement which lists all available options as well as their description.
+
+input		Name of the single file containing a single sequence or genome in fasta format. 
+
+-size		The minimum length (number of amino acids) of an ORF. Must be a positive integer. In case the user does not specify a length, the default length would be 50.
+
+-nbF			A restriction on the number of ORFs reported in the output file. Must be a positive integer between 1 and 6. By default it is set to 6.
+
+-output		The name of the output file. Must be a .fa file. By default, the output file is named “output.fa”.
+	
+
+NOTE: The input of a file containing more than 1 sequence or the input of multiple files will result in an error message. The input option is the only required argument that must be specified to run the program.
+
+
+EXAMPLES
+
+Prints to output.fa all the predicted ORFs from genome.fasta having a minimum length of 20 amino acids.
+
+Python3 group2_task1.py genome.fasta -size 20
+
+Prints to output.fa all the predicted coding regions from genome.fasta in the first 4 (3 from the forward strand and the first, starting from 0, from the reverse strand) out of the 6 ORFs.
+
+Python3 group2_task1.py genome.fasta -nbF 4
+
+Prints to genomeORFs.fa all the predicted ORFs from genome.fasta
+
+Python3 group2_task1.py genome.fasta -output genomeORFs.fa
+
+COMPATIBILITY
+
+	This program is compatible with Python3
+
+AUTHOR
+	
+	Jospin Al Deek, Student ID: 10965177
